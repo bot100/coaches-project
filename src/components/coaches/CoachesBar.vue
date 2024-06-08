@@ -39,7 +39,7 @@
 
 <script>
 export default {
-  emits: ['change-filter'],
+  emits: ["change-filter"],
   data() {
     return {
       tagsFilter: {
@@ -58,8 +58,7 @@ export default {
         [inputValue]: isActive,
       };
       this.tagsFilter = updatedTagFilters;
-      this.$emit('change-filter', updatedTagFilters);
-      console.log(this.tagsFilter);
+      this.$emit("change-filter", updatedTagFilters);
     },
   },
 };

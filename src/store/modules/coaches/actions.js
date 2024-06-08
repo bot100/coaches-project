@@ -14,7 +14,7 @@ export default {
     const response = await fetch(
       `https://coaches-firebase-default-rtdb.firebaseio.com/coaches/${userID}.json?auth=${token}`,
       {
-        method: 'PUT',
+        method: "PUT",
         body: JSON.stringify(coachData),
       }
     );
@@ -23,7 +23,7 @@ export default {
 
     // const json = await response.json();
 
-    context.commit('newCoach', { id: userID, ...coachData });
+    context.commit("newCoach", { id: userID, ...coachData });
   },
 
   async loadCoaches(context, payLoad) {
@@ -34,11 +34,12 @@ export default {
     const response = await fetch(
       `https://coaches-firebase-default-rtdb.firebaseio.com/coaches.json`
     );
+    const json = await response?.json();
 
-    const json = await response.json();
+    if (!json) return;
 
     if (!response.ok) {
-      const error = new Error(response.message || 'Failed to fetch');
+      const error = new Error(response.message || "Failed to fetch");
       throw error;
     }
 
@@ -54,7 +55,7 @@ export default {
       });
     }
 
-    context.commit('setCoaches', coaches);
-    context.commit('setFetchTimeStamp');
+    context.commit("setCoaches", coaches);
+    context.commit("setFetchTimeStamp");
   },
 };

@@ -4,7 +4,6 @@ export default {
   },
 
   token(state) {
-    console.log(state);
     return state.token;
   },
 
