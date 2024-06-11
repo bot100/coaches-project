@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  props: ['type', 'class-name', 'mode'],
+  props: ["type", "class-name", "mode"],
 };
 </script>
 
@@ -22,6 +22,7 @@ a {
   border-radius: 30px;
   font-size: clamp(16px, 3vw, 18px);
   transition: scale 0.3s ease-in-out;
+  text-align: center;
 
   &:active {
     scale: 0.95;
